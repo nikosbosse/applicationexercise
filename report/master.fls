@@ -1,4 +1,4 @@
-PWD /mnt/data/Google Drive/application quant trading/report
+PWD /mnt/data/Google Drive/applicationexercise/report
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT master.tex
@@ -420,14 +420,6 @@ INPUT ../results/results_full_ts/outlier_removed_momentum_trading_results.jpg
 INPUT ../results/results_full_ts/outlier_removed_mean_reversion_results.jpg
 INPUT ../results/results_full_ts/outlier_removed_mean_reversion_results.jpg
 INPUT ../results/results_full_ts/outlier_removed_mean_reversion_results.jpg
-INPUT sections/2Performance.tex
-INPUT sections/2Performance.tex
-INPUT sections/3Charts.tex
-INPUT sections/3Charts.tex
-INPUT sections/4Code.tex
-INPUT sections/4Code.tex
-INPUT sections/5Reasoning.tex
-INPUT sections/5Reasoning.tex
 OUTPUT master.thm
 INPUT master.aux
 INPUT ./master.out

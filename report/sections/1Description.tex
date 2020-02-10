@@ -9,9 +9,9 @@ There is, however, a couple of things that I have tried and some analyses I have
 
 \section{General process for deriving a strategy}
 \subsection{Data Preparation and Visualization}
-I have split the data in training and test data set. I've done this for a couple of split dates, but present only the results for a training period of the first 1500 observations. As an initial step I extracted log returns and made sure that all time series are stationary see results \slash train\_stationarity.csv with the Augmented Dickey-Fuller test. 
+I have split the data in training and test data set. I've done this for a couple of split dates, but present only the results for a training period of the first 1500 observations. As an initial step I extracted log returns and made sure that all time series are stationary see results\slash train\_stationarity.csv with the Augmented Dickey-Fuller test. 
 
-Then I plotted the data. It can be seen results in Figure \ref{1} that everything is dominated by Asset2. 
+Then I plotted the data. It can be seen in Figure \ref{1} that everything is dominated by Asset2. Plots for the full time series can be found in results\slash results\_full\_ts.  
 
 \begin{figure}[h!]
     %\figuretitle{Stock Prices}
@@ -24,14 +24,14 @@ Then I plotted the data. It can be seen results in Figure \ref{1} that everythin
 \end{figure}{}
 
 \subsection{Look at Autocorrelations}
-As can be seen in results \slash all\_autocorr\_log\_returns.jpg, log returns of the assets generally do not exhibit large amounts of autocorrelation. While it is of course possible to fit different time series models to the data I do not feel confident that I would not simply overfit to past observations. I have also looked at automatically selected arma orders (see results\slash train\_select\_arma\_order.csv). One can see that BIC values for the different orders do hardly change. I therefore have little confidence in the ARMA orders automatically chosen. I nevertheless implemented a trading strategy based on time series predictions. Right now it only looks at ARMA(1,1)-models, but it can be easily replaced by an auto-ARMA model. This trading strategy performs very poorly right now. One can adapt the threshold value in the trade-method of the python object, but I still have little confidence in this strategy and implemented it rather as a proof of principle. 
+As can be seen in results\slash all\_autocorr\_log\_returns.jpg, log returns of the assets generally do not exhibit large amounts of autocorrelation. While it is of course possible to fit different time series models to the data I do not feel confident that I would not simply overfit to past observations. I have also looked at automatically selected arma orders (see results\slash train\_select\_arma\_order.csv). One can see that BIC values for the different orders do hardly change. I therefore have little confidence in the ARMA orders automatically chosen. I nevertheless implemented a trading strategy based on time series predictions. Right now it only looks at ARMA(1,1)-models, but it can be easily replaced by an auto-ARMA model. This trading strategy performs very poorly right now. One can adapt the threshold value in the trade-method of the python object, but I still have little confidence in this strategy and implemented it rather as a proof of principle. 
 
 
 \subsection{Look at Cointegration}
 Extensive literature suggests one can use cointegrated time series to construct a trading strategy that profits from the fact that time series move together. I tried all combinations of the time series and found combinations with p-values smaller than 0.05. However, none of them remained after adjusting for the testing of (sum(1, ..., 26) * 2) = 702 combinations. Also cointegration values differed greatly for different lengths of the time series. With more time, I would have liked to have a more thorough look at this. I did not implement a cointegration based strategy, because this would have meant focusing only on pairs of stocks instead of the entire portfolio. 
 
 \subsection{Look at Conditional Heteroskedasticity}
-As can be seen in results \slash train\_all\_autocorr\_squared\_log\_returns.jpg, the assets exhibit Conditional Heteroskedasticity. The squared log returns are oftentimes autocorrelated at lag 1, 5, 10 One could therefore model risks according to predicted variations in future returns. With more time, I would have looked into this to devise a trading strategy that uses this for risk management. 
+As can be seen in results\slash train\_all\_autocorr\_squared\_log\_returns.jpg, the assets exhibit Conditional Heteroskedasticity. The squared log returns are oftentimes autocorrelated at lag 1, 5, 10. One could therefore model risks according to predicted variations in future returns. With more time, I would have looked into this to devise a trading strategy that uses this for risk management. 
 
 
 
@@ -85,12 +85,10 @@ Results for the whole data set are shown in Figure \ref{4}. Again, momentum trad
 
 
 \chapter{Code}
-the code is available on 
+The code and all the plots are available on https://github.com/nikosbosse/applicationexercise.
 
 \chapter{Further Considerations}
 The trading strategies proposed are in many ways not optimal and not optimized. To a certain extent this is intentional in order to avoid overfitting. But nevertheless there are many parameters to be tuned and ways in which the model could be extended. The trading frequency is one such parameter that could be chosen much shorter or much longer. Especially the time-series based forecasts could work better over a shorter, e.g. daily horizon. This can easily be changed, it just needs more computational power and time. 
 
 \section{Extensions}
-Other means of predictions could be used, i.e. vector time series models or machine learning approaches like XGBoost or LightGBM.  
-
-Also the functionality of this backtesting tool could be extended to follow more closely the capabilities of existing backtesting tools. 
+Other means of predictions could be used, i.e. vector time series models or machine learning approaches like XGBoost or LightGBM. 

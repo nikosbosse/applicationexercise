@@ -9,4 +9,5 @@
 \contentsline {section}{\numberline {2.1}Results for the training period}{2}{section.2.1}% 
 \contentsline {section}{\numberline {2.2}Results for the whole period}{5}{section.2.2}% 
 \contentsline {chapter}{\numberline {3}Code}{6}{chapter.3}% 
-\contentsline {chapter}{\numberline {4}Reasoning}{6}{chapter.4}% 
+\contentsline {chapter}{\numberline {4}Further Considerations}{6}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Extensions}{6}{section.4.1}% 
